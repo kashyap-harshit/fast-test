@@ -18,5 +18,5 @@ async def create_book(the_book: BookCreate, db : Session= Depends(get_db)):
     book =  create_book_controller(db, the_book=the_book)
     if book:
 
-        return {"message": f"the book has been created: {book} {db}"}
-    return HTTPException(500, detail="book not found")
+        return {"message": f"the book has been created: {book}"}
+    return HTTPException(status_code=500, detail="Internal server error")
