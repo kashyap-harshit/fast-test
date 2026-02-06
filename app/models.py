@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, Row, String, ForeignKey, Enum, Float
 from sqlalchemy.orm import relationship
 
-from database import DeclarativeBase
+from .database import DeclarativeBase
 
     
 
