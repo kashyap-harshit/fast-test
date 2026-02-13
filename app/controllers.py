@@ -22,3 +22,13 @@ def create_book_controller(db: Session,the_book: BookCreate ):
         raise e
     except Exception as e:
         raise e
+    
+
+def update_book_controller(db:Session, update_book: BookCreate):
+    try:
+        query = select(Book).where(Book.isbn==update_book.isbn)
+        existing_book = db.scalar(query)
+        if not existing_book:
+            raise HTTPException(status_code=404, detail="Book doesn't exist")
+        
+        update_dict = update
